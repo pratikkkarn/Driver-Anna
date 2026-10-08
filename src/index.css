@@ -1,0 +1,304 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080d12;
+  --surface: #0d141b;
+  --card: #111a21;
+  --card-hover: #16222b;
+
+  --red: #b5121b;
+  --yellow: #f4c430;
+  --green: #00a878;
+
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(0, 168, 120, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 30%,
+      rgba(181, 18, 27, 0.05),
+      transparent 25%
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080d12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #26333d;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #394a56;
+}
+
+/* Selection */
+
+::selection {
+  background: rgba(244, 196, 48, 0.25);
+  color: white;
+}
+
+/* Buttons */
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Inputs */
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+/* Glass */
+
+.glass {
+  background: rgba(13, 20, 27, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+}
+
+/* Cards */
+
+.apmc-card {
+  background: linear-gradient(
+    145deg,
+    rgba(22, 34, 43, 0.92),
+    rgba(13, 20, 27, 0.96)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.apmc-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(244, 196, 48, 0.2);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(244, 196, 48, 0.035);
+}
+
+/* Karnataka accent line */
+
+.karnataka-line {
+  height: 3px;
+  width: 100%;
+
+  background: linear-gradient(
+    90deg,
+    var(--red) 0%,
+    var(--red) 45%,
+    var(--yellow) 55%,
+    var(--yellow) 100%
+  );
+}
+
+/* Status */
+
+.status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #4ade80;
+  font-size: 10px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.status-live::before {
+  content: '';
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 999px;
+  background: #22c55e;
+
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+
+  animation: livePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+}
+
+/* Voice */
+
+.voice-glow {
+  box-shadow:
+    0 0 0 6px rgba(244, 196, 48, 0.07),
+    0 0 35px rgba(244, 196, 48, 0.2);
+}
+
+.voice-recording {
+  animation: voicePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes voicePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 5px rgba(244, 196, 48, 0.08),
+      0 0 30px rgba(244, 196, 48, 0.15);
+  }
+
+  50% {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 0 14px rgba(244, 196, 48, 0.03),
+      0 0 45px rgba(244, 196, 48, 0.3);
+  }
+}
+
+/* Route animation */
+
+.route-dot {
+  animation: routeMove 2.8s linear infinite;
+}
+
+@keyframes routeMove {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Fade */
+
+.fade-in {
+  animation: fadeIn 300ms ease-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dashboard number */
+
+.metric-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  .apmc-card:hover {
+    transform: none;
+  }
+}
+
+/* Safe mobile bottom area */
+
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}

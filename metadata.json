@@ -1,0 +1,6 @@
+{
+  "name": "Drive Anna — APMC Logistics",
+  "description": "Drive Anna — Full Truck In. Verified Load Out. APMC logistics decision-support system for Hubballi APMC.",
+  "requestFramePermissions": ["geolocation", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
